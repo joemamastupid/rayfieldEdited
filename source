@@ -1597,7 +1597,10 @@ function RayfieldLibrary:CreateWindow(Settings)
 		end
 
 		-- Paragraph
-		function Tab:CreateParagraph(ParagraphSettings)
+		function Tab:CreateParagraph(ParagraphSettings, textsAmount)
+			
+			if textsAmount == nil then textsAmount = 0 end
+	
 			local ParagraphValue = {}
 
 			local Paragraph = Elements.Template.Paragraph:Clone()
@@ -1606,10 +1609,10 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Paragraph.Visible = true
 			Paragraph.Parent = TabPage
 
-			Paragraph.Size = UDim2.new(1, -10, 0, Paragraph.Content.TextBounds.Y + 700)
-			Paragraph.Content.Size = UDim2.new(0, 438, 0, Paragraph.Content.TextBounds.Y)
+			Paragraph.Content.Size = UDim2.new(0, 438, 0, Paragraph.Content.TextBounds.Y) + UDim2.fromOffset(0, 13 * textsAmount)
 			Paragraph.Content.Position = UDim2.new(1, -10, 0.575,0 )
-			print("AYO")
+			Paragraph.Size = UDim2.new(1, -10, 0, Paragraph.Content.TextBounds.Y + 40)
+
 			Paragraph.BackgroundTransparency = 1
 			Paragraph.UIStroke.Transparency = 1
 			Paragraph.Title.TextTransparency = 1
@@ -1626,9 +1629,9 @@ function RayfieldLibrary:CreateWindow(Settings)
 			function ParagraphValue:Set(NewParagraphSettings)
 				Paragraph.Title.Text = NewParagraphSettings.Title
 				Paragraph.Content.Text = NewParagraphSettings.Content
-				Paragraph.Size = UDim2.new(1, -10, 0, Paragraph.Content.TextBounds.Y + 700)
-				Paragraph.Content.Size = UDim2.new(0, 438, 0, Paragraph.Content.TextBounds.Y)
+				Paragraph.Content.Size = UDim2.new(0, 438, 0, Paragraph.Content.TextBounds.Y) + UDim2.fromOffset(0, 13 * textsAmount)
 				Paragraph.Content.Position = UDim2.new(1, -10, 0.575,0 )
+				Paragraph.Size = UDim2.new(1, -10, 0, Paragraph.Content.TextBounds.Y + 40)
 			end
 
 			return ParagraphValue
