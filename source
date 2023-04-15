@@ -1613,7 +1613,9 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Paragraph.Content.Position = UDim2.new(1, -10, 0.575,0 )
 			Paragraph.Size = UDim2.new(1, -10, 0, Paragraph.Content.TextBounds.Y + (40 * multiplier))
 			
-			Paragraph.Content.TextScaled = textscaled or false
+			if textscaled ~= nil then
+				Paragraph.Content.TextScaled = textscaled
+			end
 
 			Paragraph.BackgroundTransparency = 1
 			Paragraph.UIStroke.Transparency = 1
