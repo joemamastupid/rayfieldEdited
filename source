@@ -1609,7 +1609,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Paragraph.Visible = true
 			Paragraph.Parent = TabPage
 
-			Paragraph.Content.Size = UDim2.new(0, 438, 0, Paragraph.Content.TextBounds.Y + (40 * multiplier))
+			Paragraph.Content.Size = UDim2.new(0, 438, 0, Paragraph.Content.TextBounds.Y + (40 * multiplier * 10))
 			Paragraph.Content.Position = UDim2.new(1, -10, 0.575,0 )
 			Paragraph.Size = UDim2.new(1, -10, 0, Paragraph.Content.TextBounds.Y + (40 * multiplier))
 			
@@ -1634,7 +1634,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			
 				Paragraph.Title.Text = NewParagraphSettings.Title
 				Paragraph.Content.Text = NewParagraphSettings.Content
-				Paragraph.Content.Size = UDim2.new(0, 438, 0, Paragraph.Content.TextBounds.Y + (40 * multiplier))
+				Paragraph.Content.Size = UDim2.new(0, 438, 0, Paragraph.Content.TextBounds.Y + (40 * multiplier * 10))
 				Paragraph.Content.Position = UDim2.new(1, -10, 0.575,0 )
 				Paragraph.Size = UDim2.new(1, -10, 0, Paragraph.Content.TextBounds.Y + (40 * multiplier))
 			end
