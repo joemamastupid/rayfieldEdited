@@ -1597,7 +1597,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 		end
 
 		-- Paragraph
-		function Tab:CreateParagraph(ParagraphSettings, multiplier)
+		function Tab:CreateParagraph(ParagraphSettings, multiplier, textscaled)
 		
 			if multiplier == nil then multiplier = 1 end
 		
@@ -1609,11 +1609,11 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Paragraph.Visible = true
 			Paragraph.Parent = TabPage
 
-			Paragraph.Content.Size = UDim2.new(0, 438, 0, Paragraph.Content.TextBounds.Y + (40 * multiplier * 10))
+			Paragraph.Content.Size = UDim2.new(0, 438, 0, Paragraph.Content.TextBounds.Y + (40 * multiplier))
 			Paragraph.Content.Position = UDim2.new(1, -10, 0.575,0 )
 			Paragraph.Size = UDim2.new(1, -10, 0, Paragraph.Content.TextBounds.Y + (40 * multiplier))
 			
-			Paragraph.Content.TextScaled = true
+			Paragraph.Content.TextScaled = textscaled or false
 
 			Paragraph.BackgroundTransparency = 1
 			Paragraph.UIStroke.Transparency = 1
