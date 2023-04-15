@@ -1597,7 +1597,10 @@ function RayfieldLibrary:CreateWindow(Settings)
 		end
 
 		-- Paragraph
-		function Tab:CreateParagraph(ParagraphSettings)
+		function Tab:CreateParagraph(ParagraphSettings, multiplier)
+		
+			if multiplier == nil then multiplier = 1 end
+		
 			local ParagraphValue = {}
 
 			local Paragraph = Elements.Template.Paragraph:Clone()
@@ -1606,7 +1609,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Paragraph.Visible = true
 			Paragraph.Parent = TabPage
 
-			Paragraph.Content.Size = UDim2.new(0, 438, 0, Paragraph.Content.TextBounds.Y)
+			Paragraph.Content.Size = UDim2.new(0, 438, 0, Paragraph.Content.TextBounds.Y + (40 * multiplier))
 			Paragraph.Content.Position = UDim2.new(1, -10, 0.575,0 )
 			Paragraph.Size = UDim2.new(1, -10, 0, Paragraph.Content.TextBounds.Y + 150)
 
@@ -1623,12 +1626,15 @@ function RayfieldLibrary:CreateWindow(Settings)
 			TweenService:Create(Paragraph.Title, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()	
 			TweenService:Create(Paragraph.Content, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()	
 
-			function ParagraphValue:Set(NewParagraphSettings)
+			function ParagraphValue:Set(NewParagraphSettings, multiplier)
+				
+				if multiplier == nil then multiplier = 1 end
+			
 				Paragraph.Title.Text = NewParagraphSettings.Title
 				Paragraph.Content.Text = NewParagraphSettings.Content warn("TEST")
-				Paragraph.Content.Size = UDim2.new(0, 438, 0, Paragraph.Content.TextBounds.Y)
+				Paragraph.Content.Size = UDim2.new(0, 438, 0, Paragraph.Content.TextBounds.Y + (40 * multiplier))
 				Paragraph.Content.Position = UDim2.new(1, -10, 0.575,0 )
-				Paragraph.Size = UDim2.new(1, -10, 0, Paragraph.Content.TextBounds.Y + 150)
+				Paragraph.Size = UDim2.new(1, -10, 0, Paragraph.Content.TextBounds.Y + 40)
 			end
 
 			return ParagraphValue
