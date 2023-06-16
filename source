@@ -1628,13 +1628,14 @@ function RayfieldLibrary:CreateWindow(Settings)
 			TweenService:Create(Paragraph.Title, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()	
 			TweenService:Create(Paragraph.Content, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()	
 
-			function ParagraphValue:Set(NewParagraphSettings)
+			function ParagraphValue:Set(NewParagraphSettings, textsAmount)
 				Paragraph.Title.Text = NewParagraphSettings.Title
 				Paragraph.Content.Text = NewParagraphSettings.Content
-			
+				warn(NewParagraphSettings)
 				Paragraph.Content.Position = UDim2.new(1, -10, 0.575,0 )
-				Paragraph.Size = UDim2.new(1, -10, 0, Paragraph.Content.TextBounds.Y + 40)
+				Paragraph.Size = UDim2.new(1, -10, 0, Paragraph.Content.TextBounds.Y + 25 * textsAmount)
 				Paragraph.Content.Size = UDim2.new(0, 438, 0, Paragraph.Content.TextBounds.Y) + UDim2.fromOffset(0, 13 * textsAmount)
+				warn(Paragraph.Content.Size, Paragraph.Size)
 				Paragraph.Content.Position += UDim2.fromOffset(0, 15)
 			end
 
@@ -2492,4 +2493,3 @@ end
 
 
 return RayfieldLibrary
-
